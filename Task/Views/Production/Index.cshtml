@@ -1,0 +1,33 @@
+@model List<UretimOperasyon>
+
+@{
+    ViewData["Title"] = "Üretim Operasyonları";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Kayıt No</th>
+            <th>Başlangıç</th>
+            <th>Bitiş</th>
+            <th>Toplam Süre (Saat)</th>
+            <th>Durum</th>
+            <th>Duruş Nedeni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var uretim in Model)
+        {
+            <tr>
+                <td>@uretim.KayitNo</td>
+                <td>@uretim.Baslangic.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@uretim.Bitis.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@uretim.ToplamSure</td>
+                <td>@uretim.Durum</td>
+                <td>@uretim.DurusNedeni</td>
+            </tr>
+        }
+    </tbody>
+</table>
